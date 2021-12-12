@@ -3,11 +3,11 @@ package pgdp.adventuin;
 import pgdp.color.RgbColor;
 
 public class Adventuin {
-    private String name ;
-    private int height;
-    private RgbColor color;
-    private HatType hatType;
-    private Language language;
+    private final String name ;
+    private final int height;
+    private final RgbColor color;
+    private final HatType hatType;
+    private final Language language;
     public Adventuin(String name,int height,RgbColor color , HatType hatType, Language language )
     {
         this.name = name;

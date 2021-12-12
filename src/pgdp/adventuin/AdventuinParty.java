@@ -7,7 +7,7 @@ import java.util.Set;
 
 public final class AdventuinParty {
 
-    public Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
+    public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
     {
         Map<HatType,List<Adventuin>> ans  = null;
         List <Adventuin> santa = null;
