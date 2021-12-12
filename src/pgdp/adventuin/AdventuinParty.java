@@ -1,15 +1,12 @@
 package pgdp.adventuin;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public final class AdventuinParty {
 
     public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
     {
-        Map<HatType,List<Adventuin>> ans  = null;
+        Map<HatType,List<Adventuin>> ans  = new HashMap<>();
         List <Adventuin> santa = null;
         List <Adventuin> reindeer = null;
         List <Adventuin> fishy = null;
