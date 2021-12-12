@@ -4,14 +4,14 @@ import pgdp.color.RgbColor;
 
 public class Adventuin {
     private final String name ;
-    private final int height;
+    private final int size;
     private final RgbColor color;
     private final HatType hatType;
     private final Language language;
-    public Adventuin(String name,int height,RgbColor color , HatType hatType, Language language )
+    public Adventuin(String name,int size,RgbColor color , HatType hatType, Language language )
     {
         this.name = name;
-        this.height = height;
+        this.size = size;
         this.color = color;
         this.hatType = hatType;
         this.language = language;
@@ -26,7 +26,7 @@ public class Adventuin {
     }
 
     public int getHeight() {
-        return height;
+        return size;
     }
 
     public Language getLanguage() {
