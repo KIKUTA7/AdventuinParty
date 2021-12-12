@@ -2,8 +2,11 @@ package pgdp.adventuin;
 
 import pgdp.color.RgbColor;
 
-import java.util.*;
+import java.util.List;
 
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 public final class AdventuinParty {
 
     public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
@@ -33,7 +36,10 @@ public final class AdventuinParty {
         return ans;
 
     }
-
+    public static void printLocalizedChristmasGreetings (List<Adventuin> adventuins)
+    {
+        adventuins.stream().forEach(adventuin -> {adventuin.getLanguage().getLocalizedChristmasGreeting(adventuin.getName());});
+    }
     public static void main(String[] args) {
         HatType hat  =  HatType.FISHY_HAT;
         Language lan = Language.GERMAN;
