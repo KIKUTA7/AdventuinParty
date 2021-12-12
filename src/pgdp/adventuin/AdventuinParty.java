@@ -8,28 +8,38 @@ public final class AdventuinParty {
 
     public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
     {
-        List <Adventuin> santa = new ArrayList<>();
-        List <Adventuin> reindeer = new ArrayList<>();
-        List <Adventuin> fishy = new ArrayList<>();
-        List <Adventuin> nohat = new ArrayList<>();
-
-        while (!adventuins.isEmpty())
-        {
-            Adventuin adventuin = adventuins.remove(adventuins.size() - 1);
-            switch (adventuin.getHatType())
-            {
-                case SANTA_CLAUS: santa.add(adventuin);
-                case FISHY_HAT: fishy.add(adventuin);
-                case REINDEER: reindeer.add(adventuin);
-                case NO_HAT: nohat.add(adventuin);
-            }
-
-        }
-        Map<HatType,List<Adventuin>> ans  = new HashMap<>();
-        ans.put(HatType.FISHY_HAT, fishy);
-        ans.put(HatType.NO_HAT, nohat);
-        ans.put(HatType.REINDEER, reindeer);
-        ans.put(HatType.SANTA_CLAUS,santa);
+//        List <Adventuin> santa = new ArrayList<>();
+//        List <Adventuin> reindeer = new ArrayList<>();
+//        List <Adventuin> fishy = new ArrayList<>();
+//        List <Adventuin> nohat = new ArrayList<>();
+//
+//        while (!adventuins.isEmpty())
+//        {
+//            Adventuin adventuin = adventuins.remove(adventuins.size() - 1);
+//            switch (adventuin.getHatType())
+//            {
+//                case SANTA_CLAUS: santa.add(adventuin);
+//                case FISHY_HAT: fishy.add(adventuin);
+//                case REINDEER: reindeer.add(adventuin);
+//                case NO_HAT: nohat.add(adventuin);
+//            }
+//
+//        }
+//        Map<HatType,List<Adventuin>> ans  = new HashMap<>();
+//        ans.put(HatType.FISHY_HAT, fishy);
+//        ans.put(HatType.NO_HAT, nohat);
+//        ans.put(HatType.REINDEER, reindeer);
+//        ans.put(HatType.SANTA_CLAUS,santa);
+//        return ans;
+        Map <HatType,List<Adventuin>> ans = new HashMap<>();
+        List <Adventuin> ad = (List<Adventuin>) adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT);
+        ans.put(HatType.NO_HAT, ad);
+        List <Adventuin> ad1 = (List<Adventuin>) adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER);
+        ans.put(HatType.REINDEER, ad1);
+        List <Adventuin> ad2 = (List<Adventuin>) adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT);
+        ans.put(HatType.FISHY_HAT, ad2);
+        List <Adventuin> ad3 = (List<Adventuin>) adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS);
+        ans.put(HatType.SANTA_CLAUS, ad3);
         return ans;
     }
 
