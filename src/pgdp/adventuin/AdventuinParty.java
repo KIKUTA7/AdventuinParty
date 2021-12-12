@@ -1,5 +1,7 @@
 package pgdp.adventuin;
 
+import pgdp.color.RgbColor;
+
 import java.util.*;
 
 public final class AdventuinParty {
@@ -29,6 +31,21 @@ public final class AdventuinParty {
         ans.put(HatType.REINDEER, reindeer);
         ans.put(HatType.SANTA_CLAUS,santa);
         return ans;
+    }
+
+    public static void main(String[] args) {
+        HatType hat  =  HatType.FISHY_HAT;
+        Language lan = Language.GERMAN;
+        RgbColor col = new RgbColor(8,255,255,255);
+        Adventuin a = new Adventuin("beq",27,col,hat,lan);
+        List<Adventuin> a1 = new ArrayList<Adventuin>();
+        a1.add(a);
+        a1.add(a);
+        AdventuinParty party = new AdventuinParty();
+        Map<HatType,List<Adventuin>> m = party.groupByHatType(a1);
+        System.out.println(m.get(HatType.FISHY_HAT).size());
+
+
     }
  //   @Override
 //            public int size() {
