@@ -38,7 +38,8 @@ public final class AdventuinParty {
     }
     public static void printLocalizedChristmasGreetings (List<Adventuin> adventuins)
     {
-        adventuins.stream().forEach(adventuin -> {adventuin.getLanguage().getLocalizedChristmasGreeting(adventuin.getName());});
+        adventuins.stream().forEach(adventuin -> {
+            System.out.println(adventuin.getLanguage().getLocalizedChristmasGreeting(adventuin.getName()));});
     }
     public static void main(String[] args) {
         HatType hat  =  HatType.FISHY_HAT;
