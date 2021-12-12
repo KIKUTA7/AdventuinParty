@@ -47,6 +47,10 @@ public final class AdventuinParty {
         ans.put(HatType.REINDEER,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).max((p1, p2) -> Integer.compare(p1.getName().length(),p2.getName().length())).stream().toList());
         return ans;
     }
+    public static   Map<Integer, Double> getAverageColorBrightnessByHeight (List<Adventuin> adventuins)
+    {
+        return new HashMap<>();
+    }
     public static void main(String[] args) {
         HatType hat  =  HatType.FISHY_HAT;
         Language lan = Language.GERMAN;
