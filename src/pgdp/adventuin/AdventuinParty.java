@@ -6,10 +6,10 @@ public final class AdventuinParty {
 
     public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
     {
-        List <Adventuin> santa = null;
-        List <Adventuin> reindeer = null;
-        List <Adventuin> fishy = null;
-        List <Adventuin> nohat = null;
+        List <Adventuin> santa = new ArrayList<>();
+        List <Adventuin> reindeer = new ArrayList<>();
+        List <Adventuin> fishy = new ArrayList<>();
+        List <Adventuin> nohat = new ArrayList<>();
 
         while (!adventuins.isEmpty())
         {
