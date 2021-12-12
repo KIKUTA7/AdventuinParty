@@ -1,9 +1,7 @@
 package pgdp.adventuin;
-
+import java.util.*;
 import pgdp.color.RgbColor;
-
 import java.util.List;
-
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,8 +36,16 @@ public final class AdventuinParty {
     }
     public static void printLocalizedChristmasGreetings (List<Adventuin> adventuins)
     {
-        adventuins.stream().forEach(adventuin -> {
-            System.out.println(adventuin.getLanguage().getLocalizedChristmasGreeting(adventuin.getName()));});
+        adventuins.forEach(adventuin -> {System.out.println(adventuin.getLanguage().getLocalizedChristmasGreeting(adventuin.getName()));});
+    }
+    public static Map<HatType, List<Adventuin>> getAdventuinsWithLongestNamesByHatType (List<Adventuin> adventuins)
+    {
+        Map<HatType,List<Adventuin>> ans = new HashMap<>();
+        ans.put(HatType.FISHY_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).max((p1, p2) -> Integer.compare(p1.getName().length(),p2.getName().length())).stream().toList());
+        ans.put(HatType.SANTA_CLAUS,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).max((p1, p2) -> Integer.compare(p1.getName().length(),p2.getName().length())).stream().toList());
+        ans.put(HatType.NO_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).max((p1, p2) -> Integer.compare(p1.getName().length(),p2.getName().length())).stream().toList());
+        ans.put(HatType.REINDEER,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).max((p1, p2) -> Integer.compare(p1.getName().length(),p2.getName().length())).stream().toList());
+        return ans;
     }
     public static void main(String[] args) {
         HatType hat  =  HatType.FISHY_HAT;
