@@ -6,7 +6,6 @@ public final class AdventuinParty {
 
     public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
     {
-        Map<HatType,List<Adventuin>> ans  = new HashMap<>();
         List <Adventuin> santa = null;
         List <Adventuin> reindeer = null;
         List <Adventuin> fishy = null;
@@ -24,6 +23,7 @@ public final class AdventuinParty {
             }
 
         }
+        Map<HatType,List<Adventuin>> ans  = new HashMap<>();
         ans.put(HatType.FISHY_HAT, fishy);
         ans.put(HatType.NO_HAT, nohat);
         ans.put(HatType.REINDEER, reindeer);
