@@ -51,6 +51,10 @@ public final class AdventuinParty {
     {
         return new HashMap<>();
     }
+    public static Map<HatType, Double> getDiffOfAvgHeightDiffsToPredecessorByHatType (List<Adventuin> adventuins)
+    {
+        return new HashMap<>();
+    }
     public static void main(String[] args) {
         HatType hat  =  HatType.FISHY_HAT;
         Language lan = Language.GERMAN;
