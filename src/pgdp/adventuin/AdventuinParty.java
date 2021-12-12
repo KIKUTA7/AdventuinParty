@@ -14,6 +14,7 @@ public final class AdventuinParty {
         List <Adventuin> fishy = new ArrayList<>();
         List <Adventuin> nohat = new ArrayList<>();
 
+
         while (!adventuins.isEmpty())
         {
             Adventuin adventuin = adventuins.remove(adventuins.size() - 1);
