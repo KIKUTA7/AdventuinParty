@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 public final class AdventuinParty {
+
     public Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
     {
         Map<HatType,List<Adventuin>> ans  = null;
