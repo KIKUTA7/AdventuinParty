@@ -132,8 +132,8 @@ public final class AdventuinParty {
 //                        adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() - 1).getHeight();
 //                positiveQuantity++;
 //            }
-          double resultat = 0.0;
-          if(negativeQuantity != 0) resultat +=  negativeSum/negativeQuantity - negativeSum/negativeQuantity - negativeSum/negativeQuantity;
+          double resultat = 0.0d;
+          if(negativeQuantity != 0) resultat += (-1.0) * negativeSum/negativeQuantity;
           if(positiveQuantity != 0) resultat += (double) positiveSum/positiveQuantity;
 
           if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() == 1)
