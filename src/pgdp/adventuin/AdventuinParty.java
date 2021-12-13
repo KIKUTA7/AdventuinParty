@@ -8,26 +8,26 @@ import java.util.HashMap;
 
 public final class AdventuinParty {
 
-    public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
-    {
-        List <Adventuin> santa = new ArrayList<>();
-        List <Adventuin> reindeer = new ArrayList<>();
-        List <Adventuin> fishy = new ArrayList<>();
-        List <Adventuin> nohat = new ArrayList<>();
+    public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins) {
+        List<Adventuin> santa = new ArrayList<>();
+        List<Adventuin> reindeer = new ArrayList<>();
+        List<Adventuin> fishy = new ArrayList<>();
+        List<Adventuin> nohat = new ArrayList<>();
 
-        List <Adventuin> adventuins1= new ArrayList<>();
-        while (!adventuins.isEmpty())
-        {
-            Adventuin adventuin = adventuins.remove(0);
-           if(adventuin.getHatType() == HatType.FISHY_HAT) fishy.add(adventuin);
-           else if(adventuin.getHatType() == HatType.SANTA_CLAUS) santa.add(adventuin);
-           else if(adventuin.getHatType() == HatType.NO_HAT) nohat.add(adventuin);
-           else reindeer.add(adventuin);
-           adventuins1.add(adventuin);
+
+        for (Adventuin adventuin : adventuins) {
+
+
+            if (adventuin.getHatType() == HatType.FISHY_HAT) fishy.add(adventuin);
+            else if (adventuin.getHatType() == HatType.SANTA_CLAUS) santa.add(adventuin);
+            else if (adventuin.getHatType() == HatType.NO_HAT) nohat.add(adventuin);
+            else reindeer.add(adventuin);
+
 
         }
+
         Map<HatType,List<Adventuin>> ans  = new HashMap<>();
-        adventuins = adventuins1;
+
         ans.put(HatType.FISHY_HAT, fishy);
         ans.put(HatType.NO_HAT, nohat);
         ans.put(HatType.REINDEER, reindeer);
