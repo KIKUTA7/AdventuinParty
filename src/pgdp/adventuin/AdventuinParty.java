@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public final class AdventuinParty {
 
@@ -43,28 +44,20 @@ public final class AdventuinParty {
     {
         Map <HatType,List<Adventuin>> map = new AdventuinParty().groupByHatType(adventuins);
         Map <HatType,List<Adventuin>> ans = new HashMap<>();
-        if(map.get(HatType.FISHY_HAT).stream().max(Comparator.comparingInt(p -> p.getName().length())).stream().toList().size()!=0)
-            ans.put(HatType.FISHY_HAT,map.get(HatType.FISHY_HAT).stream().max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-
-        if(map.get(HatType.SANTA_CLAUS).stream().max(Comparator.comparingInt(p -> p.getName().length())).stream().toList().size()!=0)
-            ans.put(HatType.SANTA_CLAUS,map.get(HatType.SANTA_CLAUS).stream().max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        if(map.get(HatType.NO_HAT).stream().max(Comparator.comparingInt(p -> p.getName().length())).stream().toList().size()!=0)
-            ans.put(HatType.NO_HAT,map.get(HatType.NO_HAT).stream().max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        if(map.get(HatType.REINDEER).stream().max(Comparator.comparingInt(p -> p.getName().length())).stream().toList().size()!=0)
-            ans.put(HatType.REINDEER,map.get(HatType.REINDEER).stream().max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+        groupByHatType(adventuins).entrySet().stream().forEach(adventuin -> {
+           int Mx =  adventuin.getValue().stream().max(Comparator.comparingInt(x -> x.getName().length())).get().getName().length();
+           ans.put(adventuin.getKey(), adventuin.getValue().stream().filter(adventuin1 -> adventuin1.getName().length()==Mx).collect(Collectors.toList()));
+        });
 //        Map<HatType,List<Adventuin>> ans = new HashMap<>();
+//        int Mx = adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList().get(0).getName().length();
 //        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).toList().size() != 0)
-//            ans.put(HatType.FISHY_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+//            ans.put(HatType.FISHY_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).);
 //        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).toList().size() != 0)
 //            ans.put(HatType.SANTA_CLAUS,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
 //        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).toList().size() != 0)
 //            ans.put(HatType.NO_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
 //        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).toList().size() != 0)
 //            ans.put(HatType.REINDEER,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-//        if(ans.get(HatType.NO_HAT).size()==0) ans.remove(HatType.NO_HAT);
-//        if(ans.get(HatType.SANTA_CLAUS).size()==0) ans.remove(HatType.SANTA_CLAUS);
-//        if(ans.get(HatType.REINDEER).size()==0) ans.remove(HatType.REINDEER);
-//        if(ans.get(HatType.FISHY_HAT).size()==0) ans.remove(HatType.FISHY_HAT);
         return ans;
     }
     public static   Map<Integer, Double> getAverageColorBrightnessByHeight (List<Adventuin> adventuins)
@@ -88,11 +81,26 @@ public final class AdventuinParty {
         HatType hat  =  HatType.FISHY_HAT;
         Language lan = Language.GERMAN;
         RgbColor col = new RgbColor(8,255,255,255);
-        Adventuin a = new Adventuin("beq",27,col,hat,lan);
+        Adventuin a = new Adventuin("beqa",27,col,hat,lan);
         Adventuin aa = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
+        Adventuin b = new Adventuin("beq",27,col,hat,lan);
+        Adventuin bb = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
+        Adventuin c = new Adventuin("beq",27,col,hat,lan);
+        Adventuin cc = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
+        Adventuin d = new Adventuin("beq",27,col,hat,lan);
+        Adventuin dd = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
         List<Adventuin> a1 = new ArrayList<Adventuin>();
         a1.add(a);
         a1.add(aa);
+
+        a1.add(b);
+        a1.add(bb);
+
+        a1.add(c);
+        a1.add(cc);
+
+        a1.add(d);
+        a1.add(dd);
         System.out.println(a1.size());
         AdventuinParty party = new AdventuinParty();
         party.printLocalizedChristmasGreetings(a1);
