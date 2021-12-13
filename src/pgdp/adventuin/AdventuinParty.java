@@ -141,6 +141,7 @@ public final class AdventuinParty {
 
 
                   ans.put(key, Math.max(resultat, 0.0));
+
               }
           }
           });
