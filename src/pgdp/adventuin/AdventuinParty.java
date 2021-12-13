@@ -83,57 +83,57 @@ public final class AdventuinParty {
     {
           Map<HatType, Double> ans = new HashMap<>();
           groupByHatType(adventuins).entrySet().stream().forEach(adventuin -> {
-          double positiveSum = 0;
+          double positiveSum = 0.0;
           int negativeQuantity = 0;
-          double negativeSum = 0;
+          double negativeSum = 0.0;
           int positiveQuantity = 0;
 
           for (int i = 1;i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size();i++)
           {
-              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i).getHeight() <= 0)
+              if((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i).getHeight() <= 0.0)
               {
                   ExceptionUtil.unsupportedOperation("aba uyure");
               }
-              double diff = adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i).getHeight() -
-                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i-1).getHeight();
-              if(diff < 0)
+              double diff = (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i).getHeight() -
+                      (double)  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i-1).getHeight();
+              if(diff < 0.0)
               {
                   negativeSum += diff;negativeQuantity++;
               }
-              else if (diff > 0)
+              else if (diff > 0.0)
               {
                   positiveSum += diff;positiveQuantity++;
               }
 
           }
-              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight() <= 0)
+              if((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight() <= 0.0)
               {
                   ExceptionUtil.unsupportedOperation("aba uyure");
               }
-          if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(0).getHeight()
-                  - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(
+          if((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(0).getHeight()
+                  - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(
                   adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() - 1).getHeight()
-                  < 0
+                  < 0.0
           )
           {
               negativeSum += (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(0).getHeight()
-                      - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(
+                      - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(
                       adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() - 1).getHeight();
               negativeQuantity++;
           }
-          else if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(0).getHeight()
-                  - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(
+          else if((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(0).getHeight()
+                  - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(
                   adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() - 1).getHeight()
-                  > 0
+                  > 0.0
           )
             {
                 positiveSum += (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(0).getHeight()
-                        - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(
+                        - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(
                         adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() - 1).getHeight();
                 positiveQuantity++;
             }
           double resultat = 0.0;
-          if(negativeQuantity != 0) resultat += (-1.0) * negativeSum/negativeQuantity;
+          if(negativeQuantity != 0) resultat += (-1.0) * (double) negativeSum/negativeQuantity;
           if(positiveQuantity != 0) resultat += (double) positiveSum/positiveQuantity;
 
           if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() == 1)
@@ -158,8 +158,8 @@ public final class AdventuinParty {
         Adventuin cc = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
         Adventuin d = new Adventuin("beq",10,col,hat,lan);
         Adventuin dd = new Adventuin("beqa",5,col,hat,Language.ENGLISH);
-        Adventuin f = new Adventuin("beq",-1,col,hat,lan);
-        Adventuin ff = new Adventuin("beqa",0,col,hat,Language.ENGLISH);
+        Adventuin f = new Adventuin("beq",1,col,hat,lan);
+        Adventuin ff = new Adventuin("beqa",11,col,hat,Language.ENGLISH);
         List<Adventuin> a1 = new ArrayList<Adventuin>();
         List<Adventuin> a2 = new ArrayList<>();
         a1.add(a);
