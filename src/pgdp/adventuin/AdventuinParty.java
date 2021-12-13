@@ -53,13 +53,13 @@ public final class AdventuinParty {
     public static   Map<Integer, Double> getAverageColorBrightnessByHeight (List<Adventuin> adventuins)
     {
         Map<Integer,Double> ans = new HashMap<>();
-        adventuins.stream().forEach(adventuin -> {
+        adventuins.forEach(adventuin -> {
             Integer h = new AdventuinParty().round(adventuin.getHeight());
             ans.put(h, ((adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255));
         });
         return ans;
     }
-    public Integer round (Integer i)
+    public static Integer round (Integer i)
     {
         if(i%10>=5) return i-i%10+10;
         else return i-i%10;
