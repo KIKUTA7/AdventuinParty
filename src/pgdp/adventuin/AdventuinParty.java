@@ -100,30 +100,30 @@ public final class AdventuinParty {
               }
 
           }
-          if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
-                  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1
-          ).getHeight() - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight()
+          if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight()
+                  - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
+                  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1).getHeight()
                   < 0
           )
           {
-              negativeSum += adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
-                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1
-              ).getHeight() - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight();
+              negativeSum += adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight()
+                      - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
+                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1).getHeight();
               negativeQuantity++;
           }
-          else if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
-                  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1
-          ).getHeight() - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight()
+          else if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight()
+                  - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
+                  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1).getHeight()
                   > 0
           )
             {
-                positiveSum += adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
-                        adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1
-                ).getHeight() - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight();
+                positiveSum += adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight()
+                        - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
+                        adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1).getHeight();
                 positiveQuantity++;
             }
           double resultat = 0;
-          if(negativeQuantity != 0) resultat += (-1.0)*negativeSum/negativeQuantity;
+          if(negativeQuantity != 0) resultat += (-1.0) * negativeSum/negativeQuantity;
           if(positiveQuantity != 0) resultat += (double) positiveSum/positiveQuantity;
 
           if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() == 1)
