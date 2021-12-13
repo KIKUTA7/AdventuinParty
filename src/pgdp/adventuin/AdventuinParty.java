@@ -37,37 +37,37 @@ public final class AdventuinParty {
         return ans;
 
     }
-    public static void printLocalizedChristmasGreetings (List<Adventuin> adventuins)
-    {
-        adventuins.forEach(adventuin -> {System.out.println(adventuin.getLanguage().getLocalizedChristmasGreeting(adventuin.getName()));});
-    }
-    public static Map<HatType, List<Adventuin>> getAdventuinsWithLongestNamesByHatType (List<Adventuin> adventuins)
-    {
-        Map<HatType,List<Adventuin>> ans = new HashMap<>();
-        ans.put(HatType.FISHY_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        ans.put(HatType.SANTA_CLAUS,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        ans.put(HatType.NO_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        ans.put(HatType.REINDEER,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        return ans;
-    }
-    public static   Map<Integer, Double> getAverageColorBrightnessByHeight (List<Adventuin> adventuins)
-    {
-        Map<Integer,Double> ans = new HashMap<>();
-        adventuins.forEach(adventuin -> {
-            Integer h = new AdventuinParty().round(adventuin.getHeight());
-            ans.put(h, ((adventuin.getColor().getRed()*0.2126+adventuin.getColor().getGreen()*0.7152+adventuin.getColor().getBlue()*0.0722)/255));
-        });
-        return ans;
-    }
-    public Integer round (Integer i)
-    {
-        if(i%10>=5) return i-i%10+10;
-        else return i-i%10;
-    }
-    public static Map<HatType, Double> getDiffOfAvgHeightDiffsToPredecessorByHatType (List<Adventuin> adventuins)
-    {
-        return new HashMap<>();
-    }
+//    public static void printLocalizedChristmasGreetings (List<Adventuin> adventuins)
+//    {
+//        adventuins.forEach(adventuin -> {System.out.println(adventuin.getLanguage().getLocalizedChristmasGreeting(adventuin.getName()));});
+//    }
+//    public static Map<HatType, List<Adventuin>> getAdventuinsWithLongestNamesByHatType (List<Adventuin> adventuins)
+//    {
+//        Map<HatType,List<Adventuin>> ans = new HashMap<>();
+//        ans.put(HatType.FISHY_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+//        ans.put(HatType.SANTA_CLAUS,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+//        ans.put(HatType.NO_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+//        ans.put(HatType.REINDEER,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+//        return ans;
+//    }
+//    public static   Map<Integer, Double> getAverageColorBrightnessByHeight (List<Adventuin> adventuins)
+//    {
+//        Map<Integer,Double> ans = new HashMap<>();
+//        adventuins.forEach(adventuin -> {
+//            Integer h = new AdventuinParty().round(adventuin.getHeight());
+//            ans.put(h, ((adventuin.getColor().getRed()*0.2126+adventuin.getColor().getGreen()*0.7152+adventuin.getColor().getBlue()*0.0722)/255));
+//        });
+//        return ans;
+//    }
+//    public Integer round (Integer i)
+//    {
+//        if(i%10>=5) return i-i%10+10;
+//        else return i-i%10;
+//    }
+//    public static Map<HatType, Double> getDiffOfAvgHeightDiffsToPredecessorByHatType (List<Adventuin> adventuins)
+//    {
+//        return new HashMap<>();
+//    }
     public static void main(String[] args) {
         HatType hat  =  HatType.FISHY_HAT;
         Language lan = Language.GERMAN;
@@ -78,11 +78,11 @@ public final class AdventuinParty {
         a1.add(a);
         a1.add(aa);
         System.out.println(a1.size());
-        AdventuinParty party = new AdventuinParty();
-        party.printLocalizedChristmasGreetings(a1);
-        Map<HatType,List<Adventuin>> m = party.groupByHatType(a1);
-        System.out.println(m.get(HatType.FISHY_HAT).size());
-        Map<HatType,List<Adventuin>> m1 = party.getAdventuinsWithLongestNamesByHatType(a1);
+//        AdventuinParty party = new AdventuinParty();
+//        party.printLocalizedChristmasGreetings(a1);
+//        Map<HatType,List<Adventuin>> m = party.groupByHatType(a1);
+//        System.out.println(m.get(HatType.FISHY_HAT).size());
+//        Map<HatType,List<Adventuin>> m1 = party.getAdventuinsWithLongestNamesByHatType(a1);
 
 
     }
