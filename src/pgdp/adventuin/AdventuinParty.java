@@ -8,39 +8,39 @@ import java.util.HashMap;
 
 public final class AdventuinParty {
 
-    public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
-    {
-        List <Adventuin> santa = new ArrayList<>();
-        List <Adventuin> reindeer = new ArrayList<>();
-        List <Adventuin> fishy = new ArrayList<>();
-        List <Adventuin> nohat = new ArrayList<>();
-
-        List <Adventuin> adventuins1= adventuins.subList(0,adventuins.size() - 1);
-        while (!adventuins1.isEmpty())
-        {
-            Adventuin adventuin = adventuins1.remove(adventuins1.size() - 1);
-            switch (adventuin.getHatType())
-            {
-                case SANTA_CLAUS : {santa.add(adventuin);break;}
-                case FISHY_HAT : {fishy.add(adventuin);break;}
-                case REINDEER : {reindeer.add(adventuin);break;}
-                case NO_HAT : {nohat.add(adventuin);break;}
-            }
-
-
-        }
-        Map<HatType,List<Adventuin>> ans  = new HashMap<>();
-        ans.put(HatType.FISHY_HAT, fishy);
-        ans.put(HatType.NO_HAT, nohat);
-        ans.put(HatType.REINDEER, reindeer);
-        ans.put(HatType.SANTA_CLAUS,santa);
-        return ans;
-
-    }
-//    public static void printLocalizedChristmasGreetings (List<Adventuin> adventuins)
+//    public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins)
 //    {
-//        adventuins.forEach(adventuin -> {System.out.println(adventuin.getLanguage().getLocalizedChristmasGreeting(adventuin.getName()));});
+//        List <Adventuin> santa = new ArrayList<>();
+//        List <Adventuin> reindeer = new ArrayList<>();
+//        List <Adventuin> fishy = new ArrayList<>();
+//        List <Adventuin> nohat = new ArrayList<>();
+//
+//        List <Adventuin> adventuins1= adventuins.subList(0,adventuins.size() - 1);
+//        while (!adventuins1.isEmpty())
+//        {
+//            Adventuin adventuin = adventuins1.remove(adventuins1.size() - 1);
+//            switch (adventuin.getHatType())
+//            {
+//                case SANTA_CLAUS : {santa.add(adventuin);break;}
+//                case FISHY_HAT : {fishy.add(adventuin);break;}
+//                case REINDEER : {reindeer.add(adventuin);break;}
+//                case NO_HAT : {nohat.add(adventuin);break;}
+//            }
+//
+//
+//        }
+//        Map<HatType,List<Adventuin>> ans  = new HashMap<>();
+//        ans.put(HatType.FISHY_HAT, fishy);
+//        ans.put(HatType.NO_HAT, nohat);
+//        ans.put(HatType.REINDEER, reindeer);
+//        ans.put(HatType.SANTA_CLAUS,santa);
+//        return ans;
+//
 //    }
+    public static void printLocalizedChristmasGreetings (List<Adventuin> adventuins)
+    {
+        adventuins.forEach(adventuin -> {System.out.println(adventuin.getLanguage().getLocalizedChristmasGreeting(adventuin.getName()));});
+    }
 //    public static Map<HatType, List<Adventuin>> getAdventuinsWithLongestNamesByHatType (List<Adventuin> adventuins)
 //    {
 //        Map<HatType,List<Adventuin>> ans = new HashMap<>();
