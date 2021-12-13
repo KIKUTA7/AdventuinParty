@@ -135,7 +135,8 @@ public final class AdventuinParty {
                   positiveQuantity++;
               }
               double resultat = 0.0;
-              if (negativeQuantity != 0) resultat += (-(double)1.0) * (double) negativeSum / negativeQuantity;
+              double mult = -1.0;
+              if (negativeQuantity != 0) resultat += (mult) * (double) negativeSum / negativeQuantity;
               if (positiveQuantity != 0) resultat += (double) positiveSum / positiveQuantity;
 
 
