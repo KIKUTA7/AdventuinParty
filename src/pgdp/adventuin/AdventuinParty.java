@@ -83,7 +83,7 @@ public final class AdventuinParty {
     {
           Map<HatType, Double> ans = new HashMap<>();
           groupByHatType(adventuins).forEach((key, value) -> {
-              if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() == 1)
+              if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() <= 1)
                   ans.put(key, 0.0);
               else {
               double positiveSum = 0.0;
@@ -138,9 +138,7 @@ public final class AdventuinParty {
               if (positiveQuantity != 0) resultat += (double) positiveSum / positiveQuantity;
 
 
-              if(resultat >= 0.0)
-                  ans.put(key, resultat);
-              else ans.put(key,0.0);
+                  ans.put(key, Math.max(resultat, 0.0));
               }
           });
         return ans;
