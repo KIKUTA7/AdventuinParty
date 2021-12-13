@@ -9,10 +9,10 @@ import java.util.HashMap;
 public final class AdventuinParty {
 
     public static Map<HatType,List<Adventuin>> groupByHatType (List<Adventuin> adventuins) {
-        List<Adventuin> santa = new ArrayList<>();
-        List<Adventuin> reindeer = new ArrayList<>();
-        List<Adventuin> fishy = new ArrayList<>();
-        List<Adventuin> nohat = new ArrayList<>();
+        List<Adventuin> santa = new LinkedList<>();
+        List<Adventuin> reindeer = new LinkedList<>();
+        List<Adventuin> fishy = new LinkedList<>();
+        List<Adventuin> nohat = new LinkedList<>();
 
 
         for (Adventuin adventuin : adventuins) {
@@ -28,10 +28,10 @@ public final class AdventuinParty {
 
         Map<HatType,List<Adventuin>> ans  = new HashMap<>();
 
-        ans.put(HatType.FISHY_HAT, fishy);
-        ans.put(HatType.NO_HAT, nohat);
-        ans.put(HatType.REINDEER, reindeer);
-        ans.put(HatType.SANTA_CLAUS,santa);
+        if(fishy.size()!=0) ans.put(HatType.FISHY_HAT, fishy);
+        if(nohat.size()!=0) ans.put(HatType.NO_HAT, nohat);
+        if(reindeer.size()!=0) ans.put(HatType.REINDEER, reindeer);
+        if(santa.size()!=0) ans.put(HatType.SANTA_CLAUS,santa);
         return ans;
 
     }
