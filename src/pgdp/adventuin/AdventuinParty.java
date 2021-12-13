@@ -123,8 +123,8 @@ public final class AdventuinParty {
                 positiveQuantity++;
             }
           double resultat = 0;
-          if(negativeQuantity != 0) resultat += (-1)*negativeSum/negativeQuantity;
-          if(positiveQuantity != 0) resultat += positiveSum/positiveQuantity;
+          if(negativeQuantity != 0) resultat += (-1.0)*negativeSum/negativeQuantity;
+          if(positiveQuantity != 0) resultat += (double) positiveSum/positiveQuantity;
 
           if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() == 1)
               ans.put(adventuin.getKey(),0.0);
