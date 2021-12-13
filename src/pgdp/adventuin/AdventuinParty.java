@@ -83,7 +83,7 @@ public final class AdventuinParty {
     {
           Map<HatType, Double> ans = new HashMap<>();
           groupByHatType(adventuins).forEach((key, value) -> {
-              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key) != null){
+              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() != 0){
               if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() <= 1)
                   ans.put(key, 0.0);
               else {
