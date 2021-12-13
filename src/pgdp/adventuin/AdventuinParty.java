@@ -82,7 +82,7 @@ public final class AdventuinParty {
     public static Map<HatType, Double> getDiffOfAvgHeightDiffsToPredecessorByHatType (List<Adventuin> adventuins)
     {
           Map<HatType, Double> ans = new HashMap<>();
-          groupByHatType(adventuins).entrySet().stream().forEach(adventuin -> {
+          groupByHatType(adventuins).entrySet().forEach(adventuin -> {
           double positiveSum = 0.0;
           int negativeQuantity = 0;
           double negativeSum = 0.0;
