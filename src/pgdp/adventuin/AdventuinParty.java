@@ -44,11 +44,11 @@ public final class AdventuinParty {
         Map<HatType,List<Adventuin>> ans = new HashMap<>();
         if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).toList().size() != 0)
             ans.put(HatType.FISHY_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).toList().size() != 0)
+        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).toList().size() != 0)
             ans.put(HatType.SANTA_CLAUS,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).toList().size() != 0)
+        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).toList().size() != 0)
             ans.put(HatType.NO_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).toList().size() != 0)
+        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).toList().size() != 0)
             ans.put(HatType.REINDEER,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
         if(ans.get(HatType.NO_HAT).size()==0) ans.remove(HatType.NO_HAT);
         if(ans.get(HatType.SANTA_CLAUS).size()==0) ans.remove(HatType.SANTA_CLAUS);
