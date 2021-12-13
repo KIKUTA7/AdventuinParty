@@ -83,6 +83,7 @@ public final class AdventuinParty {
     {
           Map<HatType, Double> ans = new HashMap<>();
           groupByHatType(adventuins).forEach((key, value) -> {
+              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key) != null){
               if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() <= 1)
                   ans.put(key, 0.0);
               else {
@@ -140,6 +141,7 @@ public final class AdventuinParty {
 
                   ans.put(key, Math.max(resultat, 0.0));
               }
+          }
           });
         return ans;
     }
