@@ -95,15 +95,20 @@ public final class AdventuinParty {
                   if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() <= 0.0) {
                       ExceptionUtil.unsupportedOperation("aba uyure");
                   }
-//                  double diff = (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
-//                          (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight();
-//                  if (diff < 0.0) {
-//                      negativeSum += diff;
-//                      negativeQuantity++;
-//                  } else if (diff > 0.0) {
-//                      positiveSum += diff;
-//                      positiveQuantity++;
-//                  }
+
+                  if ( (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
+                          (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight()
+                          < 0.0) {
+                      negativeSum +=   (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
+                              (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight();
+                      negativeQuantity++;
+                  } else if (  (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
+                          (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight()
+                          > 0.0) {
+                      positiveSum +=  (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
+                              (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight();
+                      positiveQuantity++;
+                  }
 
               }
               if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight() <= 0.0) {
