@@ -56,9 +56,12 @@ public final class AdventuinParty {
         Map<Integer,Double> ans = new HashMap<>();
         adventuins.forEach(adventuin -> {
             Integer h = new AdventuinParty().round(adventuin.getHeight());
-
+            if(ans.get(h) != null)
             ans.put(h, (ans.get(h)+(adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255)/2);
-
+            else
+            {
+                ans.put(h, ((adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255 +(adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255)/2);
+            }
         });
         return ans;
     }
