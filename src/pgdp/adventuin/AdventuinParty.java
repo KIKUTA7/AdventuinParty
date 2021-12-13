@@ -1,6 +1,6 @@
 package pgdp.adventuin;
-import java.util.*;
 
+import java.util.*;
 import pgdp.color.ExceptionUtil;
 import pgdp.color.RgbColor;
 import java.util.List;
@@ -132,7 +132,7 @@ public final class AdventuinParty {
                         adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() - 1).getHeight();
                 positiveQuantity++;
             }
-          double resultat = 0.0d;
+          double resultat = 0.0;
           if(negativeQuantity != 0) resultat += (-1.0) * negativeSum/negativeQuantity;
           if(positiveQuantity != 0) resultat += (double) positiveSum/positiveQuantity;
 
