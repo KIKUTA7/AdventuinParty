@@ -138,8 +138,9 @@ public final class AdventuinParty {
               if (positiveQuantity != 0) resultat += (double) positiveSum / positiveQuantity;
 
 
-
+              if(resultat >= 0.0)
                   ans.put(key, resultat);
+              else ans.put(key,0.0);
               }
           });
         return ans;
