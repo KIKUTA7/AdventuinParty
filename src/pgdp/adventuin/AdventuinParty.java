@@ -54,15 +54,22 @@ public final class AdventuinParty {
     public static   Map<Integer, Double> getAverageColorBrightnessByHeight (List<Adventuin> adventuins)
     {
         Map<Integer,Double> ans = new HashMap<>();
+        Map<Integer,Integer> step = new HashMap<>();
         adventuins.forEach(adventuin -> {
-            Integer h = new AdventuinParty().round(adventuin.getHeight());
+            Integer h = round(adventuin.getHeight());
             if(ans.get(h) != null)
-            ans.put(h, (ans.get(h)+(adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255)/2);
+            ans.put(h, (ans.get(h)*step.get(h)
+                    +(adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+
+                    adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+
+                    adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255)/(step.get(h)+1));
             else
             {
-                ans.put(h, ((adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255 +(adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255)/2);
+                ans.put(h, ((adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+
+                        adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+
+                        adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255));
             }
-
+            if(step.get(h) == null) step.put(h,1);
+            else step.put(h,step.get(h)+1);
         });
         return ans;
     }
