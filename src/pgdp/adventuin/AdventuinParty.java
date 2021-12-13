@@ -42,10 +42,14 @@ public final class AdventuinParty {
     public static Map<HatType, List<Adventuin>> getAdventuinsWithLongestNamesByHatType (List<Adventuin> adventuins)
     {
         Map<HatType,List<Adventuin>> ans = new HashMap<>();
-        ans.put(HatType.FISHY_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        ans.put(HatType.SANTA_CLAUS,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        ans.put(HatType.NO_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-        ans.put(HatType.REINDEER,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).toList().size() != 0)
+            ans.put(HatType.FISHY_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).toList().size() != 0)
+            ans.put(HatType.SANTA_CLAUS,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).toList().size() != 0)
+            ans.put(HatType.NO_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).toList().size() != 0)
+            ans.put(HatType.REINDEER,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
         return ans;
     }
     public static   Map<Integer, Double> getAverageColorBrightnessByHeight (List<Adventuin> adventuins)
