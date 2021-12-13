@@ -53,7 +53,7 @@ public final class AdventuinParty {
     public static   Map<Integer, Double> getAverageColorBrightnessByHeight (List<Adventuin> adventuins)
     {
         Map<Integer,Double> ans = new HashMap<>();
-        adventuins.forEach(adventuin -> {
+        adventuins.stream().sorted(Comparator.comparingInt(Adventuin::getHeight)).forEach(adventuin -> {
             Integer h = new AdventuinParty().round(adventuin.getHeight());
             ans.put(h, ((adventuin.getColor().getRed()*0.2126+adventuin.getColor().getGreen()*0.7152+adventuin.getColor().getBlue()*0.0722)/255));
         });
