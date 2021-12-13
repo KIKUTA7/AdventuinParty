@@ -18,14 +18,11 @@ public final class AdventuinParty {
         List <Adventuin> adventuins1= new ArrayList<>();
         while (!adventuins.isEmpty())
         {
-            Adventuin adventuin = adventuins.remove(adventuins.size() - 1);
-            switch (adventuin.getHatType())
-            {
-                case SANTA_CLAUS : {santa.add(adventuin);break;}
-                case FISHY_HAT : {fishy.add(adventuin);break;}
-                case REINDEER : {reindeer.add(adventuin);break;}
-                case NO_HAT : {nohat.add(adventuin);break;}
-            }
+            Adventuin adventuin = adventuins.remove(0);
+           if(adventuin.getHatType() == HatType.FISHY_HAT) fishy.add(adventuin);
+           else if(adventuin.getHatType() == HatType.SANTA_CLAUS) santa.add(adventuin);
+           else if(adventuin.getHatType() == HatType.NO_HAT) nohat.add(adventuin);
+           else reindeer.add(adventuin);
            adventuins1.add(adventuin);
 
         }
