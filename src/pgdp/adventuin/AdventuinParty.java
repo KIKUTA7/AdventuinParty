@@ -124,12 +124,9 @@ public final class AdventuinParty {
             }
           double resultat = 0.0;
           if(negativeQuantity != 0) resultat += (-1.0) * negativeSum/negativeQuantity;
-          if(positiveQuantity != 0) resultat += (double) positiveSum/positiveQuantity;
-          if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() == 0)
-          {
-              ans.put(adventuin.getKey(),0.0);
-          }
-          else if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() == 1)
+          if(positiveQuantity != 0) resultat += (1.0) * positiveSum/positiveQuantity;
+
+          if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() == 1)
               ans.put(adventuin.getKey(),0.0);
           else
           {
@@ -149,9 +146,12 @@ public final class AdventuinParty {
         Adventuin bb = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
         Adventuin c = new Adventuin("beq",27,col,hat,lan);
         Adventuin cc = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
-        Adventuin d = new Adventuin("beq",27,col,hat,lan);
-        Adventuin dd = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
+        Adventuin d = new Adventuin("beq",110,col,hat,lan);
+        Adventuin dd = new Adventuin("beqa",100,col,hat,Language.ENGLISH);
+        Adventuin f = new Adventuin("beq",100,col,hat,lan);
+        Adventuin ff = new Adventuin("beqa",120,col,hat,Language.ENGLISH);
         List<Adventuin> a1 = new ArrayList<Adventuin>();
+        List<Adventuin> a2 = new ArrayList<>();
         a1.add(a);
         a1.add(aa);
 
@@ -163,14 +163,13 @@ public final class AdventuinParty {
 
         a1.add(d);
         a1.add(dd);
-        System.out.println(a1.size());
+        a2.add(f);
+        a2.add(ff);
+        a2.add(dd);
+        a2.add(d);
         AdventuinParty party = new AdventuinParty();
-        party.printLocalizedChristmasGreetings(a1);
-        Map<HatType,List<Adventuin>> m = party.groupByHatType(a1);
-        System.out.println(m.get(HatType.FISHY_HAT).size());
-        Map<HatType,List<Adventuin>> m1 = party.getAdventuinsWithLongestNamesByHatType(a1);
-
-
+        Map<HatType,Double> m = party.getDiffOfAvgHeightDiffsToPredecessorByHatType(a2);
+        System.out.println(m.get(HatType.FISHY_HAT));
 
 
     }
