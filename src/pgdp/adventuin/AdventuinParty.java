@@ -88,9 +88,9 @@ public final class AdventuinParty {
                   ans.put(key, 0.0);
               else {
               double positiveSum = 0.0;
-              int negativeQuantity = 0;
+              double negativeQuantity = 0.0;
               double negativeSum = 0.0;
-              int positiveQuantity = 0;
+              double positiveQuantity = 0.0;
 
               for (int i = 1; i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size(); i++) {
                   if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() <= 0.0) {
@@ -102,13 +102,13 @@ public final class AdventuinParty {
                           < 0.0) {
                       negativeSum +=   (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
                               (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight();
-                      negativeQuantity++;
+                      negativeQuantity+=1.0;
                   } else if (  (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
                           (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight()
                           > 0.0) {
                       positiveSum +=  (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
                               (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight();
-                      positiveQuantity++;
+                      positiveQuantity+=1.0;
                   }
 
               }
@@ -123,7 +123,7 @@ public final class AdventuinParty {
                   negativeSum += (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
                           - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
                           adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
-                  negativeQuantity++;
+                  negativeQuantity+=1.0;
               } else if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
                       - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
                       adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight()
@@ -132,7 +132,7 @@ public final class AdventuinParty {
                   positiveSum += (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
                           - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
                           adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
-                  positiveQuantity++;
+                  positiveQuantity+=1.0;
               }
               double resultat = 0.0;
               double mult = -1.0;
