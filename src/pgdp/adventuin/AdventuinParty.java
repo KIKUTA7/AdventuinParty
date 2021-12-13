@@ -1,5 +1,7 @@
 package pgdp.adventuin;
 import java.util.*;
+
+import pgdp.color.ExceptionUtil;
 import pgdp.color.RgbColor;
 import java.util.List;
 import java.util.Map;
@@ -79,8 +81,8 @@ public final class AdventuinParty {
     }
     public static Map<HatType, Double> getDiffOfAvgHeightDiffsToPredecessorByHatType (List<Adventuin> adventuins)
     {
-        Map<HatType, Double> ans = new HashMap<>();
-        groupByHatType(adventuins).entrySet().stream().forEach(adventuin -> {
+          Map<HatType, Double> ans = new HashMap<>();
+          groupByHatType(adventuins).entrySet().stream().forEach(adventuin -> {
           double positiveSum = 0;
           int negativeQuantity = 0;
           double negativeSum = 0;
@@ -88,6 +90,10 @@ public final class AdventuinParty {
 
           for (int i = 1;i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size();i++)
           {
+              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i).getHeight() <= 0)
+              {
+                  ExceptionUtil.unsupportedOperation("aba uyure");
+              }
               double diff = adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i).getHeight() -
                       adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i-1).getHeight();
               if(diff < 0)
@@ -146,10 +152,10 @@ public final class AdventuinParty {
         Adventuin bb = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
         Adventuin c = new Adventuin("beq",27,col,hat,lan);
         Adventuin cc = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
-        Adventuin d = new Adventuin("beq",110,col,hat,lan);
-        Adventuin dd = new Adventuin("beqa",100,col,hat,Language.ENGLISH);
-        Adventuin f = new Adventuin("beq",100,col,hat,lan);
-        Adventuin ff = new Adventuin("beqa",120,col,hat,Language.ENGLISH);
+        Adventuin d = new Adventuin("beq",10,col,hat,lan);
+        Adventuin dd = new Adventuin("beqa",5,col,hat,Language.ENGLISH);
+        Adventuin f = new Adventuin("beq",-1,col,hat,lan);
+        Adventuin ff = new Adventuin("beqa",0,col,hat,Language.ENGLISH);
         List<Adventuin> a1 = new ArrayList<Adventuin>();
         List<Adventuin> a2 = new ArrayList<>();
         a1.add(a);
