@@ -106,6 +106,10 @@ public final class AdventuinParty {
               }
 
           }
+              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight() <= 0)
+              {
+                  ExceptionUtil.unsupportedOperation("aba uyure");
+              }
           if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(0).getHeight()
                   - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().get(
                   adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == adventuin.getKey()).toList().size() - 1).getHeight()
