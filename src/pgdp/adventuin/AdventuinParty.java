@@ -79,11 +79,43 @@ public final class AdventuinParty {
     }
     public static Map<HatType, Double> getDiffOfAvgHeightDiffsToPredecessorByHatType (List<Adventuin> adventuins)
     {
-        return new HashMap<>();
+        Map<HatType, Double> ans = new HashMap<>();
+        groupByHatType(adventuins).entrySet().stream().forEach(adventuin -> {
+          int positiveSum = 0;
+          int negativeQuantity = 0;
+          int negativeSum = 0;
+          int positiveQuantity = 0;
+          for (int i = 1;i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size();i++)
+          {
+              int diff = adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i).getHeight() -
+                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i-1).getHeight();
+              if(diff < 0)
+              {
+                  negativeSum += diff;negativeQuantity++;
+              }
+              else if (diff > 0)
+              {
+                  positiveSum += diff;positiveQuantity++;
+              }
+
+          }
+          double resultat = 0;
+          if(negativeQuantity != 0) resultat += (-1)*negativeSum/negativeQuantity;
+          if(positiveQuantity != 0) resultat += positiveSum/positiveQuantity;
+
+          if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() == 1)
+              ans.put(adventuin.getKey(),0.0);
+          else
+          {
+              ans.put(adventuin.getKey(),resultat);
+          }
+        });
+        return ans;
     }
     public static void main(String[] args) {
         HatType hat  =  HatType.FISHY_HAT;
         Language lan = Language.GERMAN;
+        Language lan1 = Language.ARMENIAN;
         RgbColor col = new RgbColor(8,255,255,255);
         Adventuin a = new Adventuin("beqa",27,col,hat,lan);
         Adventuin aa = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
