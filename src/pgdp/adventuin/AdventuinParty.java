@@ -15,10 +15,10 @@ public final class AdventuinParty {
         List <Adventuin> fishy = new ArrayList<>();
         List <Adventuin> nohat = new ArrayList<>();
 
-        List <Adventuin> adventuins1= new ArrayList<>();
-        while (!adventuins.isEmpty())
+        List <Adventuin> adventuins1= adventuins.subList(0,adventuins.size() - 1);
+        while (!adventuins1.isEmpty())
         {
-            Adventuin adventuin = adventuins.remove(adventuins.size() - 1);
+            Adventuin adventuin = adventuins1.remove(adventuins1.size() - 1);
             switch (adventuin.getHatType())
             {
                 case SANTA_CLAUS : {santa.add(adventuin);break;}
@@ -26,7 +26,7 @@ public final class AdventuinParty {
                 case REINDEER : {reindeer.add(adventuin);break;}
                 case NO_HAT : {nohat.add(adventuin);break;}
             }
-            adventuins1.add(adventuin);
+
 
         }
         Map<HatType,List<Adventuin>> ans  = new HashMap<>();
@@ -34,7 +34,6 @@ public final class AdventuinParty {
         ans.put(HatType.NO_HAT, nohat);
         ans.put(HatType.REINDEER, reindeer);
         ans.put(HatType.SANTA_CLAUS,santa);
-        adventuins = adventuins1;
         return ans;
 
     }
