@@ -112,28 +112,28 @@ public final class AdventuinParty {
                   }
 
               }
-//              if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight() <= 0.0) {
-//                  ExceptionUtil.unsupportedOperation("aba uyure");
-//              }
-//              if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
-//                      - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
-//                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight()
-//                      < 0.0
-//              ) {
-//                  negativeSum += (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
-//                          - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
-//                          adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
-//                  negativeQuantity++;
-//              } else if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
-//                      - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
-//                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight()
-//                      > 0.0
-//              ) {
-//                  positiveSum += (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
-//                          - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
-//                          adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
-//                  positiveQuantity++;
-//              }
+              if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight() <= 0.0) {
+                  ExceptionUtil.unsupportedOperation("aba uyure");
+              }
+              if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
+                      - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
+                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight()
+                      < 0.0
+              ) {
+                  negativeSum += (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
+                          - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
+                          adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
+                  negativeQuantity++;
+              } else if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
+                      - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
+                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight()
+                      > 0.0
+              ) {
+                  positiveSum += (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
+                          - (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
+                          adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
+                  positiveQuantity++;
+              }
 //              double resultat = 0.0;
 //              if (negativeQuantity != 0) resultat += (-1.0) * (double) negativeSum / negativeQuantity;
 //              if (positiveQuantity != 0) resultat += (double) positiveSum / positiveQuantity;
