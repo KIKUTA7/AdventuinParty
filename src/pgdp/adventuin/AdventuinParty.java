@@ -88,10 +88,10 @@ public final class AdventuinParty {
               double negativeSum = 0.0;
               int positiveQuantity = 0;
 
-//              for (int i = 1; i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size(); i++) {
-//                  if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() <= 0.0) {
-//                      ExceptionUtil.unsupportedOperation("aba uyure");
-//                  }
+              for (int i = 1; i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size(); i++) {
+                  if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() <= 0.0) {
+                      ExceptionUtil.unsupportedOperation("aba uyure");
+                  }
 //                  double diff = (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
 //                          (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight();
 //                  if (diff < 0.0) {
@@ -101,8 +101,8 @@ public final class AdventuinParty {
 //                      positiveSum += diff;
 //                      positiveQuantity++;
 //                  }
-//
-//              }
+
+              }
               if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight() <= 0.0) {
                   ExceptionUtil.unsupportedOperation("aba uyure");
               }
