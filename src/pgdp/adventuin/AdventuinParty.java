@@ -48,16 +48,7 @@ public final class AdventuinParty {
            int Mx =  adventuin.getValue().stream().max(Comparator.comparingInt(x -> x.getName().length())).get().getName().length();
            ans.put(adventuin.getKey(), adventuin.getValue().stream().filter(adventuin1 -> adventuin1.getName().length()==Mx).collect(Collectors.toList()));
         });
-//        Map<HatType,List<Adventuin>> ans = new HashMap<>();
-//        int Mx = adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList().get(0).getName().length();
-//        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).toList().size() != 0)
-//            ans.put(HatType.FISHY_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.FISHY_HAT).);
-//        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).toList().size() != 0)
-//            ans.put(HatType.SANTA_CLAUS,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.SANTA_CLAUS).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-//        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).toList().size() != 0)
-//            ans.put(HatType.NO_HAT,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.NO_HAT).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
-//        if(adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).toList().size() != 0)
-//            ans.put(HatType.REINDEER,adventuins.stream().filter(adventuin -> adventuin.getHatType() == HatType.REINDEER).max(Comparator.comparingInt(p -> p.getName().length())).stream().toList());
+
         return ans;
     }
     public static   Map<Integer, Double> getAverageColorBrightnessByHeight (List<Adventuin> adventuins)
@@ -65,7 +56,9 @@ public final class AdventuinParty {
         Map<Integer,Double> ans = new HashMap<>();
         adventuins.forEach(adventuin -> {
             Integer h = new AdventuinParty().round(adventuin.getHeight());
-            ans.put(h, ((adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255));
+
+            ans.put(h, (ans.get(h)+(adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255)/2);
+
         });
         return ans;
     }
