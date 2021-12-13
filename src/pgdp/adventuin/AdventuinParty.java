@@ -136,8 +136,8 @@ public final class AdventuinParty {
               }
               double resultat = 0.0;
               double mult = -1.0;
-              if (negativeQuantity != 0) resultat += (mult) * (double) negativeSum / negativeQuantity;
-              if (positiveQuantity != 0) resultat += (double) positiveSum / positiveQuantity;
+              if (negativeQuantity != 0.0) resultat += (mult) * (double) negativeSum / negativeQuantity;
+              if (positiveQuantity != 0.0) resultat += (double) positiveSum / positiveQuantity;
 
 
                   ans.put(key, Math.max(resultat, 0.0));
