@@ -87,10 +87,10 @@ public final class AdventuinParty {
               if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() <= 1)
                   ans.put(key, 0.0);
               else {
-              double positiveSum = 0.0;
-              double negativeQuantity = 0.0;
-              double negativeSum = 0.0;
-              double positiveQuantity = 0.0;
+              Double positiveSum = 0.0;
+              Double negativeQuantity = 0.0;
+              Double negativeSum = 0.0;
+              Double positiveQuantity = 0.0;
 
               for (int i = 1; i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size(); i++) {
                   if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() <= 0.0) {
@@ -134,8 +134,8 @@ public final class AdventuinParty {
                           adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
                   positiveQuantity+=1.0;
               }
-              double resultat = 0.0;
-              double mult = -1.0;
+              Double resultat = 0.0;
+              Double mult = -1.0;
               if (negativeQuantity > 0.0) resultat = resultat + (mult) * (double) negativeSum / negativeQuantity;
               if (positiveQuantity > 0.0) resultat = resultat + (double) positiveSum / positiveQuantity;
 
