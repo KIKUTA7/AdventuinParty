@@ -62,6 +62,7 @@ public final class AdventuinParty {
             {
                 ans.put(h, ((adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255 +(adventuin.getColor().toRgbColor8Bit().getRed()*0.2126+adventuin.getColor().toRgbColor8Bit().getGreen()*0.7152+adventuin.getColor().toRgbColor8Bit().getBlue()*0.0722)/255)/2);
             }
+
         });
         return ans;
     }
