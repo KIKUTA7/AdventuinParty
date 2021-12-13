@@ -134,52 +134,52 @@ public final class AdventuinParty {
                           adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
                   positiveQuantity++;
               }
-//              double resultat = 0.0;
-//              if (negativeQuantity != 0) resultat += (-1.0) * (double) negativeSum / negativeQuantity;
-//              if (positiveQuantity != 0) resultat += (double) positiveSum / positiveQuantity;
-//
-//
-//                  ans.put(key, Math.max(resultat, 0.0));
+              double resultat = 0.0;
+              if (negativeQuantity != 0) resultat += (-1.0) * (double) negativeSum / negativeQuantity;
+              if (positiveQuantity != 0) resultat += (double) positiveSum / positiveQuantity;
+
+
+                  ans.put(key, Math.max(resultat, 0.0));
               }
           }
           });
         return ans;
     }
     public static void main(String[] args) {
-//        HatType hat  =  HatType.FISHY_HAT;
-//        Language lan = Language.GERMAN;
-//        Language lan1 = Language.ARMENIAN;
-//        RgbColor col = new RgbColor(8,255,255,255);
-//        Adventuin a = new Adventuin("beqa",27,col,hat,lan);
-//        Adventuin aa = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
-//        Adventuin b = new Adventuin("beq",27,col,hat,lan);
-//        Adventuin bb = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
-//        Adventuin c = new Adventuin("beq",27,col,hat,lan);
-//        Adventuin cc = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
-//        Adventuin d = new Adventuin("beq",10,col,hat,lan);
-//        Adventuin dd = new Adventuin("beqa",5,col,hat,Language.ENGLISH);
-//        Adventuin f = new Adventuin("beq",1,col,hat,lan);
-//        Adventuin ff = new Adventuin("beqa",11,col,hat,Language.ENGLISH);
-//        List<Adventuin> a1 = new ArrayList<Adventuin>();
-//        List<Adventuin> a2 = new ArrayList<>();
-//        a1.add(a);
-//        a1.add(aa);
-//
-//        a1.add(b);
-//        a1.add(bb);
-//
-//        a1.add(c);
-//        a1.add(cc);
-//
-//        a1.add(d);
-//        a1.add(dd);
-//        a2.add(f);
-//        a2.add(ff);
-//        a2.add(dd);
-//        a2.add(d);
-//        AdventuinParty party = new AdventuinParty();
-//        Map<HatType,Double> m = party.getDiffOfAvgHeightDiffsToPredecessorByHatType(a2);
-//        System.out.println(m.get(HatType.FISHY_HAT));
+        HatType hat  =  HatType.FISHY_HAT;
+        Language lan = Language.GERMAN;
+        Language lan1 = Language.ARMENIAN;
+        RgbColor col = new RgbColor(8,255,255,255);
+        Adventuin a = new Adventuin("beqa",27,col,hat,lan);
+        Adventuin aa = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
+        Adventuin b = new Adventuin("beq",27,col,hat,lan);
+        Adventuin bb = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
+        Adventuin c = new Adventuin("beq",27,col,hat,lan);
+        Adventuin cc = new Adventuin("beqa",27,col,hat,Language.ENGLISH);
+        Adventuin d = new Adventuin("beq",10,col,hat,lan);
+        Adventuin dd = new Adventuin("beqa",5,col,hat,Language.ENGLISH);
+        Adventuin f = new Adventuin("beq",1,col,hat,lan);
+        Adventuin ff = new Adventuin("beqa",11,col,hat,Language.ENGLISH);
+        List<Adventuin> a1 = new ArrayList<Adventuin>();
+        List<Adventuin> a2 = new ArrayList<>();
+        a1.add(a);
+        a1.add(aa);
+
+        a1.add(b);
+        a1.add(bb);
+
+        a1.add(c);
+        a1.add(cc);
+
+        a1.add(d);
+        a1.add(dd);
+        a2.add(f);
+        a2.add(ff);
+        a2.add(dd);
+        a2.add(d);
+        AdventuinParty party = new AdventuinParty();
+        Map<HatType,Double> m = party.getDiffOfAvgHeightDiffsToPredecessorByHatType(a2);
+        System.out.println(m.get(HatType.FISHY_HAT));
 
 
     }
