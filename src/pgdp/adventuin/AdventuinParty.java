@@ -83,6 +83,9 @@ public final class AdventuinParty {
     {
           Map<HatType, Double> ans = new HashMap<>();
           groupByHatType(adventuins).forEach((key, value) -> {
+              if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() == 1)
+                  ans.put(key, 0.0);
+              else {
               double positiveSum = 0.0;
               int negativeQuantity = 0;
               double negativeSum = 0.0;
@@ -92,15 +95,15 @@ public final class AdventuinParty {
                   if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() <= 0.0) {
                       ExceptionUtil.unsupportedOperation("aba uyure");
                   }
-//                  double diff = (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
-//                          (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight();
-//                  if (diff < 0.0) {
-//                      negativeSum += diff;
-//                      negativeQuantity++;
-//                  } else if (diff > 0.0) {
-//                      positiveSum += diff;
-//                      positiveQuantity++;
-//                  }
+                  double diff = (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
+                          (double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight();
+                  if (diff < 0.0) {
+                      negativeSum += diff;
+                      negativeQuantity++;
+                  } else if (diff > 0.0) {
+                      positiveSum += diff;
+                      positiveQuantity++;
+                  }
 
               }
               if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight() <= 0.0) {
@@ -129,9 +132,8 @@ public final class AdventuinParty {
               if (negativeQuantity != 0) resultat += (-1.0) * (double) negativeSum / negativeQuantity;
               if (positiveQuantity != 0) resultat += (double) positiveSum / positiveQuantity;
 
-              if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() == 1)
-                  ans.put(key, 0.0);
-              else {
+
+
                   ans.put(key, resultat);
               }
           });
