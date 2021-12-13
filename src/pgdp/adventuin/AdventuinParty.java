@@ -85,6 +85,7 @@ public final class AdventuinParty {
           int negativeQuantity = 0;
           int negativeSum = 0;
           int positiveQuantity = 0;
+
           for (int i = 1;i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size();i++)
           {
               int diff = adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(i).getHeight() -
@@ -99,6 +100,28 @@ public final class AdventuinParty {
               }
 
           }
+          if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
+                  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1
+          ).getHeight() - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight()
+                  < 0
+          )
+          {
+              negativeSum += adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
+                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1
+              ).getHeight() - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight();
+              negativeQuantity++;
+          }
+          else if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
+                  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1
+          ).getHeight() - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight()
+                  > 0
+          )
+            {
+                positiveSum += adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(
+                        adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().size() - 1
+                ).getHeight() - adventuins.stream().filter(adventuin1 -> adventuin1.getHatType()==adventuin.getKey()).toList().get(0).getHeight();
+                positiveQuantity++;
+            }
           double resultat = 0;
           if(negativeQuantity != 0) resultat += (-1)*negativeSum/negativeQuantity;
           if(positiveQuantity != 0) resultat += positiveSum/positiveQuantity;
