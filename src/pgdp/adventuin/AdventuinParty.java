@@ -82,16 +82,16 @@ public final class AdventuinParty {
     public static Map<HatType, Double> getDiffOfAvgHeightDiffsToPredecessorByHatType (List<Adventuin> adventuins)
     {
           Map<HatType, Double> ans = new HashMap<>();
-//          groupByHatType(adventuins).forEach((key, value) -> {
-//              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() != 0){
-//              if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() <= 1)
-//                  ans.put(key, 0.0);
-//              else {
-//              double positiveSum = 0.0;
-//              int negativeQuantity = 0;
-//              double negativeSum = 0.0;
-//              int positiveQuantity = 0;
-//
+          groupByHatType(adventuins).forEach((key, value) -> {
+              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() != 0){
+              if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() <= 1)
+                  ans.put(key, 0.0);
+              else {
+              double positiveSum = 0.0;
+              int negativeQuantity = 0;
+              double negativeSum = 0.0;
+              int positiveQuantity = 0;
+
 //              for (int i = 1; i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size(); i++) {
 //                  if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() <= 0.0) {
 //                      ExceptionUtil.unsupportedOperation("aba uyure");
@@ -140,9 +140,9 @@ public final class AdventuinParty {
 //
 //
 //                  ans.put(key, Math.max(resultat, 0.0));
-//              }
-//          }
-//          });
+              }
+          }
+          });
         return ans;
     }
     public static void main(String[] args) {
