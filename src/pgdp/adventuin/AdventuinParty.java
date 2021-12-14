@@ -1,5 +1,6 @@
 package pgdp.adventuin;
 
+import java.math.BigDecimal;
 import java.util.*;
 import pgdp.color.ExceptionUtil;
 import pgdp.color.RgbColor;
@@ -82,6 +83,7 @@ public final class AdventuinParty {
     public static Map<HatType, Double> getDiffOfAvgHeightDiffsToPredecessorByHatType (List<Adventuin> adventuins)
     {
           Map<HatType, Double> ans = new HashMap<>();
+
           groupByHatType(adventuins).forEach((key, value) -> {
               if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() != 0){
               if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() <= 1)
@@ -136,8 +138,8 @@ public final class AdventuinParty {
               }
               Double resultat = 0.0;
               Double mult = -1.0;
-              if (negativeQuantity > 0.0) resultat = resultat + (mult) * (double) negativeSum / negativeQuantity;
-              if (positiveQuantity > 0.0) resultat = resultat + (double) positiveSum / positiveQuantity;
+              if (negativeQuantity > 0.0) resultat = resultat + (Double) ((mult) * (double) negativeSum / negativeQuantity);
+              if (positiveQuantity > 0.0) resultat = resultat + (Double) ((double) positiveSum / positiveQuantity);
 
 
                   ans.put(key, Math.max(resultat, 0.0));
@@ -146,6 +148,7 @@ public final class AdventuinParty {
           }
           });
         return ans;
+
     }
     public static void main(String[] args) {
         HatType hat  =  HatType.FISHY_HAT;
