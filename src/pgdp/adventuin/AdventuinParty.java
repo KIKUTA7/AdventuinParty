@@ -87,40 +87,34 @@ public final class AdventuinParty {
              if(map.get(key).size() == 1)
              {
                  ans.put(key,0.0);
-
+                 return;
              }
-             else {
-                 int posQ = 0;
-                 double pos = 0;
-                 int negQ = 0;
-                 double neg = 0;
-                 for (int i = 0; i < map.get(key).size() - 1; i++) {
-                     if (map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight() < 0) {
-                         negQ++;
-                         neg += map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight();
-                     } else if (map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight() > 0) {
-                         posQ++;
-                         pos += map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight();
-                     }
-                 }
-                 if (map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight() < 0) {
-                     negQ++;
-                     neg += map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight();
-                 } else if (map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight() > 0) {
-                     posQ++;
-                     pos += map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight();
-                 }
-
-                 double sum = 0;
-                 if (negQ != 0)
-                     sum += neg / negQ;
-                 if (posQ != 0)
-                     sum += pos / posQ;
-
-                 ans.put(key, sum);
-
-
+             int posQ = 0;
+             double pos = 0;
+             int negQ = 0;
+             double neg = 0;
+             for (int i = 0; i < map.get(key).size() - 1; i++)
+             {
+                 if(map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight() < 0)
+                 {negQ++;neg+=map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight();}
+                 else if(map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight() > 0)
+                 {posQ++;pos+=map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight();}
              }
+             if(map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight() < 0)
+             {negQ++;neg+=map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight();}
+             else if(map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight() > 0)
+             {posQ++;pos+=map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight();}
+
+             double sum = 0;
+             if(negQ != 0)
+             sum+= -(neg/negQ);
+             if(posQ != 0)
+             sum+= pos/posQ;
+
+             ans.put(key, sum);
+
+
+
          });
 
        return ans;
