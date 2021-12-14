@@ -100,10 +100,10 @@ public final class AdventuinParty {
                  else if(map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight() > 0)
                  {posQ++;pos+=map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight();}
              }
-             if(map.get(key).get(map.get(key).size()).getHeight() - map.get(key).get(0).getHeight() < 0)
-             {negQ++;neg+=map.get(key).get(map.get(key).size()).getHeight() - map.get(key).get(0).getHeight();}
-             else if(map.get(key).get(map.get(key).size()).getHeight() - map.get(key).get(0).getHeight() > 0)
-             {posQ++;pos+=map.get(key).get(map.get(key).size()).getHeight() - map.get(key).get(0).getHeight();}
+             if(map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight() < 0)
+             {negQ++;neg+=map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight();}
+             else if(map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight() > 0)
+             {posQ++;pos+=map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight();}
 
              double sum = 0;
              assert negQ != 0;
