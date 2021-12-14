@@ -1,8 +1,7 @@
 package pgdp.adventuin;
 
-import java.math.BigDecimal;
 import java.util.*;
-import pgdp.color.ExceptionUtil;
+
 import pgdp.color.RgbColor;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +21,7 @@ public final class AdventuinParty {
         for (Adventuin adventuin : adventuins) {
 
 
-            if (adventuin.getHatType() == HatType.FISHY_HAT) fishy.add(adventuin);
+            if (adventuin.getHatType() == HatType.key) fishy.add(adventuin);
             else if (adventuin.getHatType() == HatType.SANTA_CLAUS) santa.add(adventuin);
             else if (adventuin.getHatType() == HatType.NO_HAT) nohat.add(adventuin);
             else reindeer.add(adventuin);
@@ -32,7 +31,7 @@ public final class AdventuinParty {
 
         Map<HatType,List<Adventuin>> ans  = new HashMap<>();
 
-        if(fishy.size()!=0) ans.put(HatType.FISHY_HAT, fishy);
+        if(fishy.size()!=0) ans.put(HatType.key, fishy);
         if(nohat.size()!=0) ans.put(HatType.NO_HAT, nohat);
         if(reindeer.size()!=0) ans.put(HatType.REINDEER, reindeer);
         if(santa.size()!=0) ans.put(HatType.SANTA_CLAUS,santa);
@@ -82,79 +81,46 @@ public final class AdventuinParty {
     }
     public static Map<HatType, Double> getDiffOfAvgHeightDiffsToPredecessorByHatType (List<Adventuin> adventuins)
     {
-          Map<HatType, Double> ans = new HashMap<>();
+        Map<HatType,Double> ans = new HashMap<>();
+         Map<HatType,List<Adventuin>> map = groupByHatType(adventuins);
+         map.forEach((key,value) -> {
+             if(map.get(HatType.key).size() <= 1)
+             {
+                 ans.put(HatType.key,0.0);
+                 return;
+             }
+             int posQ = 0;
+             double pos = 0;
+             int negQ = 0;
+             double neg = 0;
+             for (int i = 0; i<map.get(HatType.key).size() - 1; i++)
+             {
+                 if(map.get(HatType.key).get(i).getHeight() - map.get(HatType.key).get(i + 1).getHeight() < 0)
+                 {negQ++;neg+=map.get(HatType.key).get(i).getHeight() - map.get(HatType.key).get(i + 1).getHeight();}
+                 else if(map.get(HatType.key).get(i).getHeight() - map.get(HatType.key).get(i + 1).getHeight() > 0)
+                 {posQ++;pos+=map.get(HatType.key).get(i).getHeight() - map.get(HatType.key).get(i + 1).getHeight();}
+             }
+             if(map.get(HatType.key).get(map.get(HatType.key).size()).getHeight() - map.get(HatType.key).get(0).getHeight() < 0)
+             {negQ++;neg+=map.get(HatType.key).get(map.get(HatType.key).size()).getHeight() - map.get(HatType.key).get(0).getHeight();}
+             else if(map.get(HatType.key).get(map.get(HatType.key).size()).getHeight() - map.get(HatType.key).get(0).getHeight() > 0)
+             {posQ++;pos+=map.get(HatType.key).get(map.get(HatType.key).size()).getHeight() - map.get(HatType.key).get(0).getHeight();}
 
-          groupByHatType(adventuins).forEach((key, value) -> {
-              if(adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() != 0){
-              if (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() <= 1)
-                  ans.put(key, 0.0);
-              else {
-              double positiveSum = 0.0;
-              double negativeQuantity = 0.0;
-              double negativeSum = 0.0;
-              double positiveQuantity = 0.0;
+             double sum = 0;
+             assert negQ != 0;
+             sum+= neg/negQ;
+             assert posQ != 0;
+             sum+= pos/posQ;
 
-              for (int i = 1; i < adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size(); i++) {
-                  if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() <= 0.0) {
-                      ExceptionUtil.unsupportedOperation("aba uyure");
-                  }
+             ans.put(HatType.key, sum);
 
-                  if (  (double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
-                          adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight())
-                          < 0.0) {
-                      negativeSum +=   (double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
-                              adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight());
-                      negativeQuantity+=1.0000;
-                  } else if (  (double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
-                           adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight())
-                          > 0.0) {
-                      positiveSum +=  (double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
-                               adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight());
-                      positiveQuantity+=1.0000;
-                  }
 
-              }
-              if ((double) adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight() <= 0.0) {
-                  ExceptionUtil.unsupportedOperation("aba uyure");
-              }
-              if ((double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
-                      -  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
-                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight())
-                      < 0.0
-              ) {
-                  negativeSum += (double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
-                          -  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
-                          adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight());
-                  negativeQuantity+=1.0000;
-              } else if ((double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
-                      -  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
-                      adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight())
-                      > 0.0
-              ) {
-                  positiveSum += (double)( adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(0).getHeight()
-                          -  adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(
-                          adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight());
-                  positiveQuantity+=1.0000;
-              }
-              double resultat = 0.0;
-              double mult = -1.0000;
-              // in this 4 line is illegalstateexception.
-              if (Math.abs(negativeQuantity-0.0000) > .00001)
-                  resultat =  (resultat +  ((mult) *   negativeSum / negativeQuantity));
-              if (Math.abs(positiveQuantity-0.0000) > .00001)
-                  resultat =  (resultat +  (  positiveSum / positiveQuantity)) ;
-              // in this 4 line is illegalstateexception.
 
-                  ans.put(key,  Math.max(resultat, 0.0));
+         });
 
-              }
-          }
-          });
-        return ans;
-
+       return ans;
     }
     public static void main(String[] args) {
-        HatType hat  =  HatType.FISHY_HAT;
+        HatType hat  =  HatType.key;
         Language lan = Language.GERMAN;
         Language lan1 = Language.ARMENIAN;
         RgbColor col = new RgbColor(8,255,255,255);
@@ -187,7 +153,7 @@ public final class AdventuinParty {
         a2.add(d);
         AdventuinParty party = new AdventuinParty();
         Map<HatType,Double> m = party.getDiffOfAvgHeightDiffsToPredecessorByHatType(a2);
-        System.out.println(m.get(HatType.FISHY_HAT));
+        System.out.println(m.get(HatType.key));
 
 
     }
