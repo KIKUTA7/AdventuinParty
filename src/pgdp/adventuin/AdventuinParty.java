@@ -136,13 +136,14 @@ public final class AdventuinParty {
                           adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
                   positiveQuantity+=1.0;
               }
-              Double resultat = 0.0;
-              Double mult = -1.0;
+              double resultat = 0.0;
+              double mult = -1.0;
+              // in this 4 line is illegalstateexception.
               if (Math.abs(negativeQuantity-0.0000) > .00001)
                   resultat = (Double) (resultat +  ((mult) * (Double)  negativeSum / negativeQuantity));
               if (Math.abs(positiveQuantity-0.0000) > .00001)
-                  resultat =(Double) (resultat +  ((mult) * (Double)  positiveSum / positiveQuantity)) ;
-
+                  resultat = (Double) (resultat +  ((Double)  positiveSum / positiveQuantity)) ;
+              // in this 4 line is illegalstateexception.
 
                   ans.put(key, (Double) Math.max(resultat, 0.0));
 
