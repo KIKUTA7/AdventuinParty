@@ -136,13 +136,13 @@ public final class AdventuinParty {
                           adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().size() - 1).getHeight();
                   positiveQuantity+=1.0;
               }
-//              Double resultat = 0.0;
-//              Double mult = -1.0;
-//              if (negativeQuantity > 0.0) resultat = resultat + (Double) ((mult) * (double) negativeSum / negativeQuantity);
-//              if (positiveQuantity > 0.0) resultat = resultat + (Double) ((double) positiveSum / positiveQuantity);
+              Double resultat = 0.0;
+              Double mult = -1.0;
+              if (negativeQuantity > .00001) resultat = resultat + (Double) ((mult) * (double) negativeSum / negativeQuantity);
+              if (positiveQuantity > .00001) resultat = resultat + (Double) ((double) positiveSum / positiveQuantity);
 
 
-                  ans.put(key, Math.max(0.0, 0.0));
+                  ans.put(key, Math.max(resultat, 0.0));
 
               }
           }
