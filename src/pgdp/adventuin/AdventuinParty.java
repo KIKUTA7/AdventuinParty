@@ -21,7 +21,7 @@ public final class AdventuinParty {
         for (Adventuin adventuin : adventuins) {
 
 
-            if (adventuin.getHatType() == HatType.key) fishy.add(adventuin);
+            if (adventuin.getHatType() == HatType.FISHY_HAT) fishy.add(adventuin);
             else if (adventuin.getHatType() == HatType.SANTA_CLAUS) santa.add(adventuin);
             else if (adventuin.getHatType() == HatType.NO_HAT) nohat.add(adventuin);
             else reindeer.add(adventuin);
@@ -31,7 +31,7 @@ public final class AdventuinParty {
 
         Map<HatType,List<Adventuin>> ans  = new HashMap<>();
 
-        if(fishy.size()!=0) ans.put(HatType.key, fishy);
+        if(fishy.size()!=0) ans.put(HatType.FISHY_HAT, fishy);
         if(nohat.size()!=0) ans.put(HatType.NO_HAT, nohat);
         if(reindeer.size()!=0) ans.put(HatType.REINDEER, reindeer);
         if(santa.size()!=0) ans.put(HatType.SANTA_CLAUS,santa);
@@ -84,26 +84,26 @@ public final class AdventuinParty {
         Map<HatType,Double> ans = new HashMap<>();
          Map<HatType,List<Adventuin>> map = groupByHatType(adventuins);
          map.forEach((key,value) -> {
-             if(map.get(HatType.key).size() <= 1)
+             if(map.get(key).size() <= 1)
              {
-                 ans.put(HatType.key,0.0);
+                 ans.put(key,0.0);
                  return;
              }
              int posQ = 0;
              double pos = 0;
              int negQ = 0;
              double neg = 0;
-             for (int i = 0; i<map.get(HatType.key).size() - 1; i++)
+             for (int i = 0; i<map.get(key).size() - 1; i++)
              {
-                 if(map.get(HatType.key).get(i).getHeight() - map.get(HatType.key).get(i + 1).getHeight() < 0)
-                 {negQ++;neg+=map.get(HatType.key).get(i).getHeight() - map.get(HatType.key).get(i + 1).getHeight();}
-                 else if(map.get(HatType.key).get(i).getHeight() - map.get(HatType.key).get(i + 1).getHeight() > 0)
-                 {posQ++;pos+=map.get(HatType.key).get(i).getHeight() - map.get(HatType.key).get(i + 1).getHeight();}
+                 if(map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight() < 0)
+                 {negQ++;neg+=map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight();}
+                 else if(map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight() > 0)
+                 {posQ++;pos+=map.get(key).get(i).getHeight() - map.get(key).get(i + 1).getHeight();}
              }
-             if(map.get(HatType.key).get(map.get(HatType.key).size()).getHeight() - map.get(HatType.key).get(0).getHeight() < 0)
-             {negQ++;neg+=map.get(HatType.key).get(map.get(HatType.key).size()).getHeight() - map.get(HatType.key).get(0).getHeight();}
-             else if(map.get(HatType.key).get(map.get(HatType.key).size()).getHeight() - map.get(HatType.key).get(0).getHeight() > 0)
-             {posQ++;pos+=map.get(HatType.key).get(map.get(HatType.key).size()).getHeight() - map.get(HatType.key).get(0).getHeight();}
+             if(map.get(key).get(map.get(key).size()).getHeight() - map.get(key).get(0).getHeight() < 0)
+             {negQ++;neg+=map.get(key).get(map.get(key).size()).getHeight() - map.get(key).get(0).getHeight();}
+             else if(map.get(key).get(map.get(key).size()).getHeight() - map.get(key).get(0).getHeight() > 0)
+             {posQ++;pos+=map.get(key).get(map.get(key).size()).getHeight() - map.get(key).get(0).getHeight();}
 
              double sum = 0;
              assert negQ != 0;
@@ -111,7 +111,7 @@ public final class AdventuinParty {
              assert posQ != 0;
              sum+= pos/posQ;
 
-             ans.put(HatType.key, sum);
+             ans.put(key, sum);
 
 
 
@@ -120,7 +120,7 @@ public final class AdventuinParty {
        return ans;
     }
     public static void main(String[] args) {
-        HatType hat  =  HatType.key;
+        HatType hat  =  HatType.FISHY_HAT;
         Language lan = Language.GERMAN;
         Language lan1 = Language.ARMENIAN;
         RgbColor col = new RgbColor(8,255,255,255);
@@ -153,7 +153,7 @@ public final class AdventuinParty {
         a2.add(d);
         AdventuinParty party = new AdventuinParty();
         Map<HatType,Double> m = party.getDiffOfAvgHeightDiffsToPredecessorByHatType(a2);
-        System.out.println(m.get(HatType.key));
+        System.out.println(m.get(HatType.FISHY_HAT));
 
 
     }
