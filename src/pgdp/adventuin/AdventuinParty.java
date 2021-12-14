@@ -106,9 +106,9 @@ public final class AdventuinParty {
              {posQ++;pos+=map.get(key).get(map.get(key).size() - 1).getHeight() - map.get(key).get(0).getHeight();}
 
              double sum = 0;
-             assert negQ != 0;
+             if(negQ != 0)
              sum+= neg/negQ;
-             assert posQ != 0;
+             if(posQ != 0)
              sum+= pos/posQ;
 
              ans.put(key, sum);
