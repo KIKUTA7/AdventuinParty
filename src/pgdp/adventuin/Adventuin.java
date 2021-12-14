@@ -11,10 +11,10 @@ public class Adventuin {
     private final Language language;
     public Adventuin(String name,int size,RgbColor color , HatType hatType, Language language )
     {
-        if(size <= 0)
-        {
-            ExceptionUtil.unsupportedOperation("aba uyure");
-        }
+//        if(size <= 0)
+//        {
+//            ExceptionUtil.unsupportedOperation("aba uyure");
+//        }
         this.name = name;
         this.height = size;
         this.color = color;
