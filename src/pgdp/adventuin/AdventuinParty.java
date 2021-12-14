@@ -104,13 +104,13 @@ public final class AdventuinParty {
                           < 0.0) {
                       negativeSum +=   (double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
                               adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight());
-                      negativeQuantity+=1.0;
+                      negativeQuantity+=1.0000;
                   } else if (  (double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
                            adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight())
                           > 0.0) {
                       positiveSum +=  (double) (adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i).getHeight() -
                                adventuins.stream().filter(adventuin1 -> adventuin1.getHatType() == key).toList().get(i - 1).getHeight());
-                      positiveQuantity+=1.0;
+                      positiveQuantity+=1.0000;
                   }
 
               }
@@ -137,7 +137,7 @@ public final class AdventuinParty {
                   positiveQuantity+=1.0000;
               }
               double resultat = 0.0;
-              double mult = -1.0;
+              double mult = -1.0000;
               // in this 4 line is illegalstateexception.
               if (Math.abs(negativeQuantity-0.0000) > .00001)
                   resultat =  (resultat +  ((mult) *   negativeSum / negativeQuantity));
