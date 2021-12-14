@@ -84,7 +84,7 @@ public final class AdventuinParty {
         Map<HatType,Double> ans = new HashMap<>();
          Map<HatType,List<Adventuin>> map = groupByHatType(adventuins);
          map.forEach((key,value) -> {
-             if(map.get(key).size() <= 1)
+             if(map.get(key).size() == 1)
              {
                  ans.put(key,0.0);
                  return;
